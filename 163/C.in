@@ -1,0 +1,30 @@
+3
+3 1
+1 3
+
+2
+1 2
+
+
+ab1c
+defg
+2hij 
+->
+r 1 3
+->
+2hij
+defg
+ab1c
+->
+c 1 3
+->
+ih2j
+fedg
+1bac
+->
+r 1 3
+->
+1bac
+fedg
+ih2j
+c 1 3

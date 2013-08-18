@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Documents/CodeForces/177/D.cpp.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v10">
+<meta name="syntax" content="cpp">
+<meta name="settings" content="number_lines,use_css,pre_wrap,expand_tabs">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #ffffff; background-color: #000000; }
+body { font-family: monospace; color: #ffffff; background-color: #000000; }
+.lnr { color: #ffff00; }
+.Special { color: #ff40ff; }
+.Type { color: #00ff00; }
+.Statement { color: #ffff00; }
+.Constant { color: #ffff00; }
+.PreProc { color: #ff40ff; }
+.Comment { color: #00ffff; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="lnr"> 1 </span><span class="Comment">//Name         : Shinchan Nohara</span>
+<span class="lnr"> 2 </span><span class="Comment">//Age          : 5 years</span>
+<span class="lnr"> 3 </span><span class="Comment">//Organisation : Kasukabe Defense Force</span>
+<span class="lnr"> 4 </span>
+<span class="lnr"> 5 </span><span class="PreProc">#include </span><span class="Constant">&lt;iostream&gt;</span>
+<span class="lnr"> 6 </span><span class="PreProc">#include </span><span class="Constant">&lt;cstdio&gt;</span>
+<span class="lnr"> 7 </span><span class="PreProc">#include </span><span class="Constant">&lt;cstring&gt;</span>
+<span class="lnr"> 8 </span><span class="PreProc">#include </span><span class="Constant">&lt;cmath&gt;</span>
+<span class="lnr"> 9 </span><span class="PreProc">#include </span><span class="Constant">&lt;cstdlib&gt;</span>
+<span class="lnr">10 </span><span class="PreProc">#include </span><span class="Constant">&lt;algorithm&gt;</span>
+<span class="lnr">11 </span><span class="PreProc">#include </span><span class="Constant">&lt;vector&gt;</span>
+<span class="lnr">12 </span><span class="PreProc">#include </span><span class="Constant">&lt;map&gt;</span>
+<span class="lnr">13 </span><span class="PreProc">#include </span><span class="Constant">&lt;set&gt;</span>
+<span class="lnr">14 </span><span class="PreProc">#include </span><span class="Constant">&lt;queue&gt;</span>
+<span class="lnr">15 </span><span class="PreProc">#include </span><span class="Constant">&lt;stack&gt;</span>
+<span class="lnr">16 </span><span class="PreProc">#include </span><span class="Constant">&lt;list&gt;</span>
+<span class="lnr">17 </span><span class="PreProc">#include </span><span class="Constant">&lt;deque&gt;</span>
+<span class="lnr">18 </span><span class="PreProc">#include </span><span class="Constant">&lt;bitset&gt;</span>
+<span class="lnr">19 </span><span class="PreProc">#include </span><span class="Constant">&lt;functional&gt;</span>   <span class="Comment">// Don't know why it is here.</span>
+<span class="lnr">20 </span><span class="PreProc">#include </span><span class="Constant">&lt;numeric&gt;</span>      <span class="Comment">// +1</span>
+<span class="lnr">21 </span><span class="PreProc">#include </span><span class="Constant">&lt;cassert&gt;</span>
+<span class="lnr">22 </span><span class="PreProc">#include </span><span class="Constant">&lt;utility&gt;</span>      <span class="Comment">// +1</span>
+<span class="lnr">23 </span><span class="PreProc">#include </span><span class="Constant">&lt;sstream&gt;</span>
+<span class="lnr">24 </span><span class="PreProc">#include </span><span class="Constant">&lt;iomanip&gt;</span>
+<span class="lnr">25 </span><span class="PreProc">#include </span><span class="Constant">&lt;climits&gt;</span>
+<span class="lnr">26 </span><span class="PreProc">#include </span><span class="Constant">&lt;ctime&gt;</span>
+<span class="lnr">27 </span><span class="PreProc">#include </span><span class="Constant">&lt;iterator&gt;</span>
+<span class="lnr">28 </span><span class="PreProc">#include </span><span class="Constant">&lt;fstream&gt;</span>
+<span class="lnr">29 </span><span class="Statement">using</span> <span class="Type">namespace</span> std;
+<span class="lnr">30 </span>
+<span class="lnr">31 </span><span class="Type">typedef</span> <span class="Type">long</span> <span class="Type">long</span>               int64;
+<span class="lnr">32 </span><span class="Type">typedef</span> vector&lt;<span class="Type">int</span>&gt;             vi;
+<span class="lnr">33 </span><span class="Type">typedef</span> string                  ST;             <span class="Comment">// Never used it :X</span>
+<span class="lnr">34 </span><span class="Type">typedef</span> stringstream            SS;
+<span class="lnr">35 </span><span class="Type">typedef</span> vector&lt; vector&lt;<span class="Type">int</span>&gt; &gt;   vvi;
+<span class="lnr">36 </span><span class="Type">typedef</span> pair&lt;<span class="Type">int</span>,<span class="Type">int</span>&gt;           ii;
+<span class="lnr">37 </span><span class="Type">typedef</span> vector&lt;string&gt;          vs;
+<span class="lnr">38 </span>
+<span class="lnr">39 </span><span class="Comment">/*</span><span class="Comment"> WHY YOU DON'T WORK :X</span>
+<span class="lnr">40 </span><span class="Comment">#if __cplusplus &gt; 199711L       // for g++0x, value of __cplusplus must be greater than 199711L.</span>
+<span class="lnr">41 </span><span class="Comment">        #define tr(i, c)        for(auto i = begin(c); i != end(c); i++)</span>
+<span class="lnr">42 </span><span class="Comment">#else</span>
+<span class="lnr">43 </span><span class="Comment">        #define tr(i, c)        for(typeof((c).begin()) i = (c).begin(); i != (c).end(); i++)</span>
+<span class="lnr">44 </span><span class="Comment">#endif</span>
+<span class="lnr">45 </span><span class="Comment">*/</span>
+<span class="lnr">46 </span><span class="PreProc">#define tr(i, c)        </span><span class="Statement">for</span><span class="PreProc">(__typeof((c).begin()) i = (c).begin(); i != (c).end(); i++) </span><span class="Comment">// \m/ Defined 3rd time.</span>
+<span class="lnr">47 </span><span class="PreProc">#define endl            (</span><span class="Constant">&quot;</span><span class="Special">\n</span><span class="Constant">&quot;</span><span class="PreProc">)                                                          </span><span class="Comment">// Really required?</span>
+<span class="lnr">48 </span>
+<span class="lnr">49 </span><span class="PreProc">#define PI              </span><span class="Constant">M_PI</span><span class="PreProc">                    </span><span class="Comment">// Fish!!! Fails on some compilers (probably MSVC++ &amp; some GNU C++).</span>
+<span class="lnr">50 </span><span class="PreProc">#define E               </span><span class="Constant">M_E</span><span class="PreProc">                     </span><span class="Comment">// Fish!!! Fails on some compilers (probably MSVC++ &amp; some GNU C++).</span>
+<span class="lnr">51 </span><span class="PreProc">#define eps             </span><span class="Constant">1e-9</span>
+<span class="lnr">52 </span><span class="PreProc">#define Sf              scanf</span>
+<span class="lnr">53 </span><span class="PreProc">#define Pf              printf</span>
+<span class="lnr">54 </span>
+<span class="lnr">55 </span><span class="PreProc">#define forn(i, n)      </span><span class="Statement">for</span><span class="PreProc">(</span><span class="Type">int</span><span class="PreProc"> i = </span><span class="Constant">0</span><span class="PreProc">, __even_my_fish_codes_better__ = (</span><span class="Type">int</span><span class="PreProc">)n; i &lt; __even_my_fish_codes_better__; i++)</span>
+<span class="lnr">56 </span><span class="PreProc">#define forab(i, a, b)  </span><span class="Statement">for</span><span class="PreProc">(</span><span class="Type">int</span><span class="PreProc"> i = a, __even_my_fish_codes_better__ = (</span><span class="Type">int</span><span class="PreProc">)b; i &lt;= __even_my_fish_codes_better__; i++)</span>
+<span class="lnr">57 </span><span class="PreProc">#define rep(i, a, b)    </span><span class="Statement">for</span><span class="PreProc">(</span><span class="Type">int</span><span class="PreProc"> i = a, __even_my_fish_codes_better__ = (</span><span class="Type">int</span><span class="PreProc">)b; i &gt;= __even_my_fish_codes_better__; i--)</span>
+<span class="lnr">58 </span>
+<span class="lnr">59 </span><span class="PreProc">#define all(c)          (c).begin(), (c).end()</span>
+<span class="lnr">60 </span><span class="PreProc">#define CL(a, b)        memset(a, b, </span><span class="Statement">sizeof</span><span class="PreProc">(a))</span>
+<span class="lnr">61 </span><span class="PreProc">#define mp              make_pair</span>
+<span class="lnr">62 </span><span class="PreProc">#define pb              push_back</span>
+<span class="lnr">63 </span>
+<span class="lnr">64 </span><span class="PreProc">#define present(x, c)   ((c).find(x) != (c).end())                      </span><span class="Comment">//map &amp; set. Shh, copied from topcoder article. Never used.</span>
+<span class="lnr">65 </span><span class="PreProc">#define cpresent(x, c)  (find( (c).begin(), (c).end(), x) != (c).end()) </span><span class="Comment">//vector &amp; list. Shh, copied from topcoder article. Never used.</span>
+<span class="lnr">66 </span>
+<span class="lnr">67 </span><span class="PreProc">#define read(n)         scanf(</span><span class="Constant">&quot;</span><span class="Special">%d</span><span class="Constant">&quot;</span><span class="PreProc">, &amp;n)</span>
+<span class="lnr">68 </span><span class="PreProc">#define write(n)        printf(</span><span class="Constant">&quot;</span><span class="Special">%d</span><span class="Constant"> &quot;</span><span class="PreProc">, (</span><span class="Type">int</span><span class="PreProc">)n)</span>
+<span class="lnr">69 </span><span class="PreProc">#define writeln(n)      printf(</span><span class="Constant">&quot;</span><span class="Special">%d</span><span class="Special">\n</span><span class="Constant">&quot;</span><span class="PreProc">, (</span><span class="Type">int</span><span class="PreProc">)n)</span>
+<span class="lnr">70 </span>
+<span class="lnr">71 </span><span class="PreProc">#if (</span><span class="Constant">0</span><span class="PreProc"> </span><span class="Statement">or</span><span class="PreProc"> defined ONLINE_JUDGE)                         </span><span class="Comment">// why topcoder doesn't use it. :(</span>
+<span class="lnr">72 </span><span class="PreProc">        #define debug</span>
+<span class="lnr">73 </span><span class="PreProc">#else</span>
+<span class="lnr">74 </span><span class="PreProc">        #define debug(x)        cout &lt;&lt; #x &lt;&lt; </span><span class="Constant">&quot; = &quot;</span><span class="PreProc"> &lt;&lt; x &lt;&lt; </span><span class="Constant">&quot;</span><span class="Special">\n</span><span class="Constant">&quot;</span>
+<span class="lnr">75 </span><span class="PreProc">#endif</span>
+<span class="lnr">76 </span>
+<span class="lnr">77 </span><span class="Type">int</span> main()
+<span class="lnr">78 </span>{
+<span class="lnr">79 </span>
+<span class="lnr">80 </span>
+<span class="lnr">81 </span>        <span class="Statement">return</span> <span class="Constant">0</span>;
+<span class="lnr">82 </span>}
+<span class="lnr">83 </span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,24 @@
+3 1
+Petya
+Vasya
+Masha
+Petya Vasya
+
+Output
+2
+Masha
+Petya
+
+
+
+3 0
+Pasha
+Lesha
+Vanya
+
+Output
+
+3
+Lesha
+Pasha
+Vanya
